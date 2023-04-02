@@ -13,8 +13,8 @@ app.get('/followers', async (req, res) => {
     await ig.state.generateDevice(user);
     await ig.account.login(user, pwd);
 
-    a1 = 'zgodofficial';
-    a2 = 'hastar_og'
+    a1 = 'a';
+    a2 = 'b'
     
 
     const { pk: account1Id } = await ig.user.searchExact(a1);
