@@ -29,7 +29,8 @@ app.get('/followers', async (req, res) => {
     res.json({ 
       account1 : account1Followers,
       account2 : account2Followers,
-      overlappingFollowersCount: overlappingFollowers.length 
+      overlapID : overlappingFollowers,
+      overlapCount: overlappingFollowers.length 
     });
 
   } catch (err) {
