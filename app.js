@@ -4,7 +4,6 @@ const { IgApiClient } = require('instagram-private-api');
 const app = express();
 
 app.get('/followers', async (req, res) => {
-  try {
     const ig = new IgApiClient();
     const user = 'user';
     const pwd = 'pwd';
@@ -13,6 +12,9 @@ app.get('/followers', async (req, res) => {
     console.log(user, pwd)
     await ig.state.generateDevice(user);
     await ig.account.login(user, pwd);
+
+    a1 = 'zgodofficial';
+    a2 = 'hastar_og'
     
 
     const { pk: account1Id } = await ig.user.searchExact(a1);
@@ -32,10 +34,6 @@ app.get('/followers', async (req, res) => {
       overlapID : overlappingFollowers,
       overlapCount: overlappingFollowers.length 
     });
-
-  } catch (err) {
-    console.log({ err });
-  }
 });
 
 app.listen(3000, () => console.log('Server started on port 3000'));
