@@ -5,8 +5,8 @@ const app = express();
 
 app.get('/followers', async (req, res) => {
   const ig = new IgApiClient();
-  const user = 'projectaspects';
-  const pwd = 'rtx@1806';
+  const user = 'gauraxv';
+  const pwd = 'grb@20012001';
 
   console.log(user, pwd);
   await ig.state.generateDevice(user);
@@ -19,14 +19,16 @@ app.get('/followers', async (req, res) => {
       let accountFollowers = [];
       let maxId;
       const feed = ig.feed.accountFollowers(accountId);
-      while (accountFollowers.length < 1000) {
+      while (accountFollowers.length < 2000) {
         const items = await feed.items({ maxId });
+        var i = ++i;
+        console.log(i)
         if (!items || !items.length) break;
         maxId = items[items.length - 1].pk;
         accountFollowers = [...accountFollowers, ...items];
       }
       if (index < accounts.length - 1) {
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise(resolve => setTimeout(resolve, 5000));
       }
       return accountFollowers;
     })
