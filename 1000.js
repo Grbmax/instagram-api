@@ -14,7 +14,7 @@ app.get('/followers', async (req, res) => {
 
   const accounts = ['zgodofficial', 'hastar_og'];
   const accountFollowers = await Promise.all(
-    accounts.map(async (account, index) => { // add index as a parameter
+    accounts.map(async (account, index) => { 
       const { pk: accountId } = await ig.user.searchExact(account);
       let accountFollowers = [];
       let maxId;
@@ -32,7 +32,6 @@ app.get('/followers', async (req, res) => {
     })
   );
 
-  // Combine and remove duplicates
   const allFollowers = [...new Set(accountFollowers.flat(1).map(follower => follower.pk))];
 
   // Count overlaps
