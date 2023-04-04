@@ -5,8 +5,8 @@ const app = express();
 
 app.get('/followers', async (req, res) => {
   const ig = new IgApiClient();
-  const user = 'gauraxv';
-  const pwd = 'grb@20012001';
+  const user = 'user';
+  const pwd = 'user';
 
   console.log(user, pwd);
   await ig.state.generateDevice(user);
